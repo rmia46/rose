@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ff54af, #ff69b4, #ff75b5);
+    background-size: 400% 400%; /* Larger background size for smooth animation */
+    animation: gradientMove 10s ease infinite; /* Animation for moving gradient */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%; /* Start position */
+    }
+    50% {
+        background-position: 100% 50%; /* Middle position */
+    }
+    100% {
+        background-position: 0% 50%; /* End position (loop back) */
+    }
+}
+.rose-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    animation: sway 5s infinite ease-in-out;
+}
+
+.rose {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-45deg);
+}
+
+.petal {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ff0077, #ff0055, #ff0033);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 10px rgba(255, 0, 119, 0.5), /* Minimal glow */
+        10px 10px 10px rgba(0, 0, 0, 0.3); /* Drop shadow */
+    animation: glow 2s infinite alternate ease-in-out;
+}
+
+.petal1 {
+    top: 0;
+    left: 50px;
+    transform: rotate(0deg);
+}
+
+.petal2 {
+    top: 50px;
+    left: 100px;
+    transform: rotate(72deg);
+}
+
+.petal3 {
+    top: 100px;
+    left: 50px;
+    transform: rotate(144deg);
+}
+
+.petal4 {
+    top: 50px;
+    left: 0;
+    transform: rotate(216deg);
+}
+
+.petal5 {
+    top: 50px;
+    left: 50px;
+    transform: rotate(288deg);
+}
+
+.center {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #ffcc00, #ff9900);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 10px rgba(255, 204, 0, 0.5), /* Minimal glow */
+        1px 1px 3px rgba(0, 0, 0, 0.3); /* Drop shadow */
+    animation: glow 2s infinite alternate ease-in-out;
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 
+            0 0 10px rgba(255, 0, 119, 0.5),
+            2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        box-shadow: 
+            0 0 15px rgba(255, 0, 119, 0.7),
+            3px 3px 7px rgba(0, 0, 0, 0.4);
+    }
+}
+
+#message {
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#message.show {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
